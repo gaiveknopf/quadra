@@ -9,7 +9,7 @@
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
           <mat-card-title>Quadra Coberta</mat-card-title>
-          <mat-card-subtitle>
+          <mat-card-subtitle style="margin-top: 4px;">
             Professor: {{quadraDoDia.professor !== null ? quadraDoDia.professor : 'Sem informação'}}</mat-card-subtitle>
           <mat-card-subtitle>
             {{quadraDoDia.dia | date: 'dd/MM/yyyy'}}
@@ -17,6 +17,14 @@
           <mat-card-subtitle>
             {{quadraDoDia.message}}
           </mat-card-subtitle>
+          <mat-card-subtitle style="margin-top: 10px;">
+            Próximos dias:
+            <div *ngFor="let day of proximos4Dias">
+              {{day.dia | date: 'dd/MM/yyyy'}} -
+              {{day.professor}}
+            </div>
+          </mat-card-subtitle>
+
         </mat-card-header>
         <div class="mt-4">
           <img mat-card-image src="assets/4.jpg">
